@@ -1,5 +1,5 @@
 {
-  "name": "jfseb/startupparams",
+  "name": "jfseb-startupparams",
   "version": "0.1.3",
   "description": "Startup Parameter governance",
   "main": "index.js",
