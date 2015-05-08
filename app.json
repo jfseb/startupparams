@@ -1,5 +1,5 @@
 {
-  "name": "jfseb startupparams",
+  "name": "jfseb-startupparams",
   "description": "A sample Node.js apps using a database",
   "repository": "https://github.com/jfseb/startupparams",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
