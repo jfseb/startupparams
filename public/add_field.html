@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="startupdefaultsedit">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+  -->
+	<!--
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  -->
+  
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://bootswatch.com/simplex/bootstrap.css">
+    <link rel="stylesheet" href="http://bootswatch.com/assets/css/bootswatch.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	
+  <!--
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	-->
+<body>
+<!-- 
+create table sdd (
+nr integer,
+name varchar(80),
+fieldcatname varchar(80), 
+tpara  varchar(32),
+description varchar(256),
+respname varchar(120),
+respemail varchar(50),
+respuserid varchar(10),
+respcompany varchar(60),
+ach varchar(16),
+creatorrecord varchar(300),
+tscreated timestamp,
+tsapproved timestamp,
+tschanged timestamp,
+approved  varchar(1)
+)
+-->
+
+   <div class="bs-component">
+             <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                    <ul class="nav navbar-nav">
+					  <li ><a href="/index.html">Introduction></a></li>
+                      <li ><a href="/fields.html">User Default Parameters</a></li>
+                      <li class="active"><a href="/add_field.html">register new Parameter <span class="sr-only">(current)</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/about.html">about</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div><!-- /example -->
+
+   <div class="bs-docs-section">
+	 <div class="row">
+          <div class="col-sm-6">
+            <div class="well bs-component">
+              <form class="form-horizontal" id="fieldA" role="form" action="db_insert" method="post">
+                 <fieldset>
+                  <legend>Add a new record or a correction for an existing one</legend>
+				         <div class="form-group">
+                    <label class="col-sm-2 control-label">New record or change request</label>
+                    <div class="col-sm-10">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                          New Entry
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                          Correction
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+				  <div class="form-group">
+                    <label for="name^^" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="">
+                  </div>
+				  </div>
+				   <div class="form-group">
+                    <label for="inputEmail" class="col-sm-2 control-label">fieldcatname</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="fieldcatname" id="fieldcatname" placeholder="">
+					     <span class="help-block">Name in global field catalog </span>
+                    </div>
+                  </div>
+				  <div class="form-group">
+                    <label for="ach" class="col-sm-2 control-label">ACH Component (OSS-Component)</label>
+					  <div class="col-lg-10">
+                      <input type="text" class="form-control" name="ach" id="ach"></textarea>
+                      <span class="help-block"> </span>
+					  </div>
+                  </div>
+
+				   <div class="form-group">
+                    <label for="tpara" class="col-sm-2 control-label">SPA/GPA ID tpara</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="tpara" id="tpara" placeholder="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Description</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control" rows="3" name="description" id="description"></textarea>
+                      <span class="help-block">Enter a description in english.</span>
+                    </div>
+                  </div>
+				  
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">responsible name</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="respname" id="respname" placeholder="Your name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">responsible email</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="respemail" id="respemail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">responsible userid (d/i-user)</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="respuserid" id="respuserid" placeholder="ixxxxxx">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">responsible company</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" name="respcompany" id="respcompany" placeholder="SAP AG">
+                    </div>
+                  </div>
+             
+				<div class="form-group group-success">
+                    <img id="img" src="http://nodecaptcha.herokuapp.com/generate?text=slartirum&font=Arial&color=000000&size=64">
+					  
+					<label for="captcha" class="col-lg-2 control-label">please enter text in image</label>
+                    <div class="col-lg-10">
+                      
+					  <input type="text" class="form-control" name="captcha" id="captcha" placeholder="fill in value above">
+					                      
+						<input type="text" class="form-control" style="display:none" hidden="true" name="cr" id="cr" placeholder="cr">
+                    </div>
+                  </div>
+             
+			 </fieldset>
+				<div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                      <button type="reset" class="btn btn-default">Cancel</button>
+					  
+					  
+					  <script>
+					    var str="abcdefghijklmnopqrstuvwxyz23456789";
+						var siz = 6 + 2 * Math.random(Number(new Date()));
+						var sx = "";
+						var sy = "";
+						for(var i = 0; i < siz; i = i + 1 ) {
+						    var ch = str.charAt(Math.random() * str.length % str.length);
+							sx = sx + ch;
+							sy = ch + sy; 
+						}
+						$('#img').get()[0].src = "http://nodecaptcha.herokuapp.com/generate?text=" + sx + "&font=Arial&color=000000&size=64";
+					    $('#cr').get()[0].value = sy;
+						
+					  </script>
+					  
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+				</form>
+            </div>
+          </div>
+     </div>
+	 </div>
+</body>
+</html>
